@@ -1,0 +1,1 @@
+document.querySelector('#approve').addEventListener('click',async()=>{try{const approved=await chrome.permissions.request({permissions:['history']});document.querySelector('#status').textContent=approved?'Approved. Return to Orbit and analyze your selected period.':'Permission declined. No history was accessed.'}catch(e){document.querySelector('#status').textContent=e.message}});

@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Orbit \u2014 Private History Connector",
+  "version": "1.1.0",
+  "minimum_chrome_version": "127",
+  "description": "Share explicitly approved history with your Orbit dashboard for local consumer-behavior analysis.",
+  "optional_permissions": [
+    "history"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://madelynnmcdonough-git.github.io/nov.3repository/*",
+        "http://localhost:5173/nov.3repository/*",
+        "http://127.0.0.1:5173/nov.3repository/*",
+        "http://localhost:5174/nov.3repository/*",
+        "http://127.0.0.1:5174/nov.3repository/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Approve Orbit history access"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
